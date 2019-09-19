@@ -39,6 +39,13 @@ func (i *Item) Float() float64 {
 func (i *Item) String() string {
 	return i.v
 }
+func (i *Item) Bool() bool {
+	b, err := strconv.ParseBool(i.v)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return b
+}
 
 func (i *Item) Duration() time.Duration {
 	d, err := time.ParseDuration(i.v)
